@@ -1,21 +1,15 @@
 const http = require('http');
+const app = require('./config/express');
+const mongoose = require('mongoose')
+const uri = "mongodb+srv://test:test@cluster0.3u98d2q.mongodb.net/?appName=Cluster0";
+const port = 3000;
+let promise = mongoose.connect(uri);
 
-const express = require('express');
-
-const app = express();
-
-
-app.listen(3000, () => {
-    console.log('Server is running on port 3000');
+promise.then(() => {
+    console.log('DB connected !');
+    app.listen(port, () => {
+        console.log(`Listening on port ${port}`);
+    });
 });
 
-app.get('/', (req, res) => {
-    res.sendFile(__dirname + '../client/index.html');
-}); 
-
-app.use('/public', express.static('./client/public'));
-app.use('/assets', express.static('./client/assets'));
-
-app.get('liste', (req, res) => {
-    res.send(Liste);
-})
+module.exports = app;
