@@ -1,0 +1,42 @@
+header {
+    border-radius: var(--border-radius);
+    box-shadow: var(--glass-shadow), var(--glass-inset-shadow);
+    border: var(--glass-border);
+    backdrop-filter: blur(var(--glass-blur)) saturate(180%);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    width: 95%;
+    margin: 0 auto; 
+}
+
+header ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+header ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+header ul li a:hover {
+    color: rgba(0, 212, 170, 1);
+}
+
+header h1 {
+    font-size: 1.8rem;
+    color: #ffffff;
+}

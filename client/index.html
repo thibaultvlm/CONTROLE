@@ -3,9 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style.root.css">
+    <link rel="stylesheet" href="./assets/css/style.header.css">
+    <link rel="stylesheet" href="./assets/css/style.index.css">
+    <script type="module" src="./assets/scripts/gameListe.js"></script>
     <title>Document</title>
 </head>
 <body>
-    <h1>TEST</h1>
+    <header>
+        <h1>Bienvenue,</h1>
+        <ul>
+            <li><a href="">Accueil</a></li>
+            <li><a href="">Liste des jeux</a></li>
+            <li><a href="">Liste des studios</a></li>
+        </ul>
+    </header>
+    <div id="liste">
+        <h2>Liste des jeux vidéo</h2>
+    </div>
+    <div class="row">
+        <div class="col-6 offset-3">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Titre</th>
+                        <th scope="col">Genre</th>
+                        <th scope="col">Date de sortie</th>
+                        <th scope="col">Développeur</th>
+                        <th scope="col">Plateforme</th>
+                    </tr>
+                </thead>
+                <tbody id="gameListe">
+
+                </tbody>
+            </table>
+        </div>
+    </div>
 </body>
 </html>
