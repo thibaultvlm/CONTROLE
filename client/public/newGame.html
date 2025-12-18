@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajouter un jeu</title>
+</head>
+<body>
+    <header>
+        <h1>Bienvenue,</h1>
+        <ul>
+            <li><a href="/">Accueil</a></li>
+            <li><a href="/public/listegame.html">Liste des jeux</a></li>
+            <li><a href="/public/listestudio.html">Listes des studios</a></li>
+        </ul>
+    </header>
+    <div class="form">
+        <h2>Ajouter un jeu</h2>
+        <form id="newGameForm">
+            <label for="title">Titre</label>
+            <input type="text" name="title" id="title" required>
+            <label for="genre">Genre :</label>
+            <input type="text" name="genre" id="genre" required>
+            <label for="releaseDate">Date de sortie :</label>
+            <input type="date" name="releaseDate" id="releaseDate" required>
+            <label for="developer">Développeur :</label>
+            <input type="text" name="developer" id="developer" required>
+            <label for="platform">Plateforme :</label>
+            <input type="text" name="platform" id="platform" required>
+            <button type="submit">Ajouter</button>
+        </form>
+    </div>
+</body>
+</html>
