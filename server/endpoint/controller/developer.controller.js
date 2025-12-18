@@ -56,3 +56,11 @@ function deleteDeveloper(req, res) {
         })
 }
 
+module.exports = {
+    getAllDevelopers,
+    getOneDeveloper,
+    newDeveloper,
+    upsertDeveloper,
+    deleteDeveloper
+}
+
