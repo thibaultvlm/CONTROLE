@@ -50,7 +50,7 @@ export class GameService {
                 return data;
             })
             .catch((error) => {
-                console.error('[⚠️] Erreur :', error);
+                console.error('Erreur :', error);
             });
     }
 
@@ -68,7 +68,7 @@ export class GameService {
             }
         })
         .catch((error) => {
-            console.error('[⚠️] Erreur :', error);
+            console.error('Erreur :', error);
         });
     }
 
@@ -89,11 +89,11 @@ export class GameService {
         return fetch(url, options)
             .then((res) => {
                 if(res.ok) {
-                    console.log('[✅] Jeu modifié')
+                    console.log('Jeu modifié')
                 }
             })
             .catch((error) => {
-                console.error('[⚠️] Erreur :', error);
+                console.error('Erreur :', error);
             });
     }
     add(game) {
@@ -112,11 +112,11 @@ export class GameService {
         return fetch(url, options)
             .then((res) => {
                 if(res.ok) {
-                    console.log('[✅] Jeu ajouté')
+                    console.log('Jeu ajouté')
                 }
             })
             .catch((error) => {
-                console.error('[⚠️] Erreur :', error);
+                console.error('Erreur :', error);
             });
     }
 
@@ -134,11 +134,11 @@ export class GameService {
         return fetch(url, options)
             .then((res) => {
                 if(res.ok) {
-                    console.log('[✅] Jeu supprimé')
+                    console.log('Jeu supprimé')
                 }
             })
             .catch((error) => {
-                console.error('[⚠️] Erreur :', error);
+                console.error('Erreur :', error);
             });
     }
 }
