@@ -8,7 +8,7 @@ function getAllGames(req, res) {
        .catch((error) => {
             console.error('Erreur', error);
             return res.status(500).send
-       });
+       })
 }       
 
 function getOneGames(req, res) {
@@ -19,7 +19,7 @@ function getOneGames(req, res) {
           .catch((error) => {
                console.error('Erreur :', error);
                return res.status(500).send;
-          });
+          })
 }
 
 function newGame(req, res) {
@@ -31,7 +31,7 @@ function newGame(req, res) {
           .catch((error) => {
                console.error('Erreur :', error);
                return res.status(500).send;
-          });
+          })
 }
 
 function upsertGames(req, res) {
@@ -42,7 +42,7 @@ function upsertGames(req, res) {
           .catch((error) => {
                console.error('Erreur :', error);
                return res.status(500).send;
-          });
+          })
 }
 
 function deleteGame(req, res) {
@@ -53,7 +53,7 @@ function deleteGame(req, res) {
           .catch((error) => {
                console.error('Erreur :', error);
                return res.status(500).send;
-          });
+          })
 }
 
 module.exports = {
