@@ -45,3 +45,14 @@ function upsertDeveloper(req, res) {
         })
 }
 
+function deleteDeveloper(req, res) {
+    return Developer.findByIdAndUpate({_id: req.params.id}, req.body, {upsert: true, new: true, runValidators: true})
+        .then((object) => {
+            return res.send(object);
+        })
+        .catch((error) => {
+            console.error('Erreur :', error);
+            return res.status
+        })
+}
+
