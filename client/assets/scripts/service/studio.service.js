@@ -15,7 +15,7 @@ export class StudioService {
                     return res.json();
                 }
             })
-            .then((data)=> {
+            .then((data) => {
                 data.forEach(element => {
                     let studio = document.createElement('tr');
                     let studioName = document.createElement('td');
@@ -85,7 +85,6 @@ export class StudioService {
     }
 
     modif(studio) {
-        console.log(studio);
         let url = `/api/studiogames/${studio._id}`;
         let options = {
             method: 'PUT',
@@ -101,13 +100,14 @@ export class StudioService {
         return fetch(url, options)
             .then((res) => {
                 if(res.ok) {
-                    console.log('Studio modifié')
+                    return res.json();
                 }
             })
             .catch((error) => {
                 console.error('Erreur :', error);
             });
     }
+
     add(studio) {
         let url = `/api/studiogames/`;
         let options = {
@@ -124,7 +124,7 @@ export class StudioService {
         return fetch(url, options)
             .then((res) => {
                 if(res.ok) {
-                    console.log('Studio ajouté')
+                    return res.json();
                 }
             })
             .catch((error) => {
@@ -146,7 +146,7 @@ export class StudioService {
         return fetch(url, options)
             .then((res) => {
                 if(res.ok) {
-                    console.log('Studio supprimé')
+                    return res.json();
                 }
             })
             .catch((error) => {

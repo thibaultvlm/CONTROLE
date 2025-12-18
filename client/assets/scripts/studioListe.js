@@ -1,4 +1,4 @@
-import { StudioService } from "./services/studio.service.js";
+import { StudioService  } from "./service/studio.service.js";
 
 let tbody = document.querySelector('#studioListe');
 const Studio = new StudioService();

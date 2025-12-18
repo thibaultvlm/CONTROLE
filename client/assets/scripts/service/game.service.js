@@ -1,5 +1,3 @@
-import { Games } from '../class/game.class.js';
-
 export class GameService {
     constructor() {
     }
@@ -17,36 +15,50 @@ export class GameService {
                     return res.json();
                 }
             })
-            .then((data)=> {
+            .then((data) => {
                 data.forEach(element => {
                     let game = document.createElement('tr');
                     let gameTitle = document.createElement('td');
                     gameTitle.innerText = element.title;
 
-                    let gameModif = document.createElement('td');
-                    let icone = document.createElement('i');
-                    icone.classList.add('fas', 'fa-edit', 'icon-modif');
+                    let gameGenre = document.createElement('td');
+                    gameGenre.innerText = element.genre;
 
-                    let gameDetails = document.createElement('a');
-                    gameDetails.href = `/public/details.html#${element._id}`;
-                    gameDetails.appendChild(icone);
-                    gameModif.appendChild(gameDetails);
+                    let gameReleaseDate = document.createElement('td');
+                    gameReleaseDate.innerText = new Date(element.releaseDate).toLocaleDateString();
 
-                    let gameDelete = document.createElement('td');
-                    let btnDelete = document.createElement('button');
-                    let iconDelete = document.createElement('i');
-                    iconDelete.classList.add('fas', 'fa-trash-alt', 'icon-delete');
-                    btnDelete.classList.add('btn-delete');
-                    gameDelete.appendChild(btnDelete);
-                    btnDelete.appendChild(iconDelete);
-                    btnDelete.addEventListener('click', () => {
-                        this.remove(element._id);
+                    let gameDeveloper = document.createElement('td');
+                    gameDeveloper.innerText = element.developer;
+
+                    let gamePlatform = document.createElement('td');
+                    gamePlatform.innerText = element.platform;
+
+                    let gameActions = document.createElement('td');
+
+                    let editIcon = document.createElement('i');
+                    editIcon.classList.add('fas', 'fa-edit', 'icon-edit');
+                    editIcon.addEventListener('click', () => {
+                        this.openEditModal(element);
                     });
-                    target.appendChild(game);
+
+                    let deleteIcon = document.createElement('i');
+                    deleteIcon.classList.add('fas', 'fa-trash-alt', 'icon-delete');
+                    deleteIcon.addEventListener('click', () => {
+                        this.openDeleteModal(element._id);
+                    });
+
+                    gameActions.appendChild(editIcon);
+                    gameActions.appendChild(deleteIcon);
+
                     game.appendChild(gameTitle);
-                    game.appendChild(gameModif);
-                    game.appendChild(gameDelete);
-                });         
+                    game.appendChild(gameGenre);
+                    game.appendChild(gameReleaseDate);
+                    game.appendChild(gameDeveloper);
+                    game.appendChild(gamePlatform);
+                    game.appendChild(gameActions);
+
+                    target.appendChild(game);
+                });
                 return data;
             })
             .catch((error) => {
@@ -73,7 +85,6 @@ export class GameService {
     }
 
     modif(game) {
-        console.log(game);
         let url = `/api/games/${game._id}`;
         let options = {
             method: 'PUT',
@@ -89,13 +100,14 @@ export class GameService {
         return fetch(url, options)
             .then((res) => {
                 if(res.ok) {
-                    console.log('Jeu modifié')
+                    return res.json();
                 }
             })
             .catch((error) => {
                 console.error('Erreur :', error);
             });
     }
+
     add(game) {
         let url = `/api/games/`;
         let options = {
@@ -103,16 +115,16 @@ export class GameService {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
-        },
-        mode: 'cors',
-        cache: 'default',
-        body: JSON.stringify(game)
+            },
+            mode: 'cors',
+            cache: 'default',
+            body: JSON.stringify(game)
         };
 
         return fetch(url, options)
             .then((res) => {
                 if(res.ok) {
-                    console.log('Jeu ajouté')
+                    return res.json();
                 }
             })
             .catch((error) => {
@@ -134,11 +146,28 @@ export class GameService {
         return fetch(url, options)
             .then((res) => {
                 if(res.ok) {
-                    console.log('Jeu supprimé')
+                    return res.json();
                 }
             })
             .catch((error) => {
                 console.error('Erreur :', error);
             });
+    }
+
+    openEditModal(game) {
+        const editGameModal = document.getElementById('editGameModal');
+        document.getElementById('editId').value = game._id;
+        document.getElementById('editTitle').value = game.title;
+        document.getElementById('editGenre').value = game.genre;
+        document.getElementById('editReleaseDate').value = new Date(game.releaseDate).toISOString().split('T')[0];
+        document.getElementById('editDeveloper').value = game.developer;
+        document.getElementById('editPlatform').value = game.platform;
+        editGameModal.style.display = 'block';
+    }
+
+    openDeleteModal(id) {
+        currentGameId = id;
+        const deleteGameModal = document.getElementById('deleteGameModal');
+        deleteGameModal.style.display = 'block';
     }
 }
