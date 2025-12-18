@@ -2,7 +2,7 @@ const Developer = require('../models/developer.model');
 
 function getAllDevelopers(req, res) {
     return Developer.find({})
-        .then((objet) => {
+        .then((object) => {
             return res.send(objet);
         })
         .catch((error) => {
@@ -13,8 +13,8 @@ function getAllDevelopers(req, res) {
 
 function getOneDeveloper(req, res) {
     return Developer.findById(req.params.id)
-        .then((objet) => {
-            return res.send(objet);
+        .then((object) => {
+            return res.send(object);
         })
         .catch((error) => {
             console.error('Erreur', error);
@@ -24,5 +24,24 @@ function getOneDeveloper(req, res) {
 
 function newDeveloper(req, res) {
     let oneDeveloper = new Developer(req.body);
+    newDeveloper.save()
+        .then((object) => {
+            return res.send(object);
+        })
+        .catch((error) => {
+            console.error('Erreur :', error);
+            return res.status(500).send;
+        })
+}
+
+function upsertDeveloper(req, res) {
+    return Developer.findByIdAndUpate({_id: req.params.id}, req.body, {upsert: true, new: true, runValidators: true})
+        .then((object) => {
+            return res.send(object);
+        })
+        .catch((error) => {
+            console.error('Erreur :', error);
+            return res.status(500).send;
+        })
 }
 
