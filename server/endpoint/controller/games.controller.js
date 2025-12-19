@@ -3,6 +3,7 @@ const Studio = require('../models/studio.model');
 
 // Récupérer tous les jeux
 function getAllGames(req, res) {
+<<<<<<< HEAD
     Game.find({})
         .then(games => {
             res.json(games);
@@ -11,6 +12,27 @@ function getAllGames(req, res) {
             console.error('Erreur lors de la récupération des jeux :', error);
             res.status(500).json({ error: 'Erreur serveur' });
         });
+=======
+    return Game.find({})
+       .then((objet) => {
+        return res.send(objet);
+       })
+       .catch((error) => {
+            console.error('Erreur', error);
+            return res.status(500).send
+       })
+}       
+
+function getOneGames(req, res) {
+     return Game.findById(req.params.id)
+          .then((object) => {
+               return res.send(object);
+          })
+          .catch((error) => {
+               console.error('Erreur :', error);
+               return res.status(500).send;
+          })
+>>>>>>> 9c1dd51274dd08343d1ae12a3584582ee1006cac
 }
 
 // Récupérer un jeu par ID
@@ -30,6 +52,7 @@ function getOneGame(req, res) {
 
 // Créer un nouveau jeu
 function newGame(req, res) {
+<<<<<<< HEAD
     const game = new Game(req.body);
     game.save()
         .then(savedGame => {
@@ -58,10 +81,33 @@ function upsertGame(req, res) {
         console.error('Erreur lors de la mise à jour du jeu :', error);
         res.status(500).json({ error: 'Erreur serveur' });
     });
+=======
+     let newGame = new Game(req.body);
+     newGame.save()
+          .then((object) => {
+               return res.send(object);
+          })
+          .catch((error) => {
+               console.error('Erreur :', error);
+               return res.status(500).send;
+          })
+}
+
+function upsertGames(req, res) {
+     return Game.findBtIdAndUpdate({_id: req.params.id}, req.body, {upsert: true, new: true, runValidators: true})
+          .then((object) => {
+               return res.send(object);
+          })
+          .catch((error) => {
+               console.error('Erreur :', error);
+               return res.status(500).send;
+          })
+>>>>>>> 9c1dd51274dd08343d1ae12a3584582ee1006cac
 }
 
 // Supprimer un jeu
 function deleteGame(req, res) {
+<<<<<<< HEAD
     Game.findByIdAndDelete(req.params.id)
         .then(game => {
             if (!game) {
@@ -107,6 +153,16 @@ function getStats(req, res) {
         console.error('Erreur lors de la récupération des statistiques :', error);
         res.status(500).json({ error: 'Erreur serveur' });
     });
+=======
+     return Game.findByIdAndDelete(req.params.id)
+          .then((object) => {
+               return res.send(object);
+          })
+          .catch((error) => {
+               console.error('Erreur :', error);
+               return res.status(500).send;
+          })
+>>>>>>> 9c1dd51274dd08343d1ae12a3584582ee1006cac
 }
 
 module.exports = {

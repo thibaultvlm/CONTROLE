@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="/assets/css/style.root.css">
     <link rel="stylesheet" href="/assets/css/style.header.css">
     <link rel="stylesheet" href="/assets/css/style.index.css">
+<<<<<<< HEAD
     <link rel="stylesheet" href="/assets/css/style.global.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <title>GameHub - Gestion de Jeux Vidéo</title>
@@ -88,5 +89,40 @@
 
     <!-- Script pour charger les données dynamiquement -->
     <script type="module" src="/assets/scripts/index.js"></script>
+=======
+    <script type="module" src="/assets/scripts/gameListe.js"></script>
+    <title>Accueil</title>
+</head>
+<body>
+    <header>
+        <h1>Bienvenue,</h1>
+        <ul>
+            <li><a href="/">Accueil</a></li>
+            <li><a href="/listegames.html">Liste des jeux</a></li>
+            <li><a href="/listestudio.html">Liste des studios</a></li>
+        </ul>
+    </header>
+    <div id="liste">
+        <h2>Liste des jeux vidéo</h2>
+    </div>
+    <div class="row">
+        <div class="col-6 offset-3">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Titre</th>
+                        <th scope="col">Genre</th>
+                        <th scope="col">Date de sortie</th>
+                        <th scope="col">Développeur</th>
+                        <th scope="col">Plateforme</th>
+                    </tr>
+                </thead>
+                <tbody id="gameListe">
+                </tbody>
+            </table>
+        </div>
+    </div>
+>>>>>>> 9c1dd51274dd08343d1ae12a3584582ee1006cac
 </body>
 </html>
