@@ -113,15 +113,9 @@
     color: var(--accent-color);
 }
 
-/* ===== Derniers Jeux Ajoutés ===== */
-#latestGamesContainer {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    margin: 20px 0;
-}
 
-.game-card {
+/* Carte individuelle (adapté à votre JS) */
+.card {
     background: rgba(26, 33, 62, 0.4);
     border-radius: var(--border-radius);
     padding: 15px;
@@ -130,34 +124,41 @@
     border: var(--glass-border);
     transition: var(--transition);
     overflow: hidden;
-    height: 250px; /* Hauteur fixe pour uniformiser */
+    height: 280px; /* Hauteur fixe pour uniformiser */
     display: flex;
     flex-direction: column;
 }
 
-.game-card:hover {
+.card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 16px rgba(0, 212, 170, 0.2);
 }
 
-.game-card img {
+/* Conteneur de l'image */
+.card .image-container {
     width: 100%;
     height: 150px; /* Hauteur fixe pour l'image */
-    object-fit: cover; /* Remplit sans déformation */
+    overflow: hidden;
     border-radius: 4px;
     margin-bottom: 10px;
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom, rgba(26, 33, 62, 0.3), rgba(26, 33, 62, 0.5));
+}
+
+/* Image du jeu */
+.game-cover {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
     flex-shrink: 0;
 }
 
-.game-info {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.game-card h3 {
+/* Titre du jeu */
+.card h4 {
     font-size: 1rem;
     margin: 10px 0 5px;
     color: var(--text-color);
@@ -166,44 +167,10 @@
     text-overflow: ellipsis;
 }
 
-.game-card .badge {
-    display: inline-block;
-    padding: 3px 8px;
-    border-radius: 12px;
-    font-size: 0.7rem;
-    background: var(--accent-color);
-    color: white;
+/* Conteneur des badges et infos */
+.card p {
+    font-size: 0.9rem;
+    color: var(--secondary-text);
     margin-top: auto;
 }
 
-/* ===== Boutons ===== */
-.btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 20px;
-    background: rgba(26, 33, 62, 0.6);
-    color: var(--text-color);
-    border: var(--glass-border);
-    border-radius: var(--border-radius);
-    text-decoration: none;
-    font-weight: 600;
-    transition: var(--transition);
-    box-shadow: var(--glass-shadow);
-    margin: 5px;
-}
-
-.btn:hover {
-    background: rgba(0, 212, 170, 0.1);
-    transform: translateY(-2px);
-}
-
-.btn-primary {
-    background: linear-gradient(145deg, var(--accent-color), var(--accent-hover));
-    color: white;
-    border: none;
-}
-
-.btn-primary:hover {
-    box-shadow: 0 6px 12px rgba(0, 212, 170, 0.3);
-}
