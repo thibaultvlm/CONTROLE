@@ -1,9 +1,9 @@
-export class GameService {
+export class StudioService {
     constructor() {}
 
-    // Récupérer tous les jeux
-    getAllGames() {
-        return fetch('/api/games')
+    // Récupérer tous les studios
+    getAllStudios() {
+        return fetch('/api/studiogames')
             .then(res => {
                 if (!res.ok) {
                     throw new Error(`Erreur HTTP! statut: ${res.status}`);
@@ -16,9 +16,9 @@ export class GameService {
             });
     }
 
-    // Récupérer un jeu par ID
+    // Récupérer un studio par ID
     get(id) {
-        return fetch(`/api/games/${id}`)
+        return fetch(`/api/studiogames/${id}`)
             .then(res => {
                 if (!res.ok) {
                     throw new Error(`Erreur HTTP! statut: ${res.status}`);
@@ -31,14 +31,14 @@ export class GameService {
             });
     }
 
-    // Ajouter un nouveau jeu
-    add(game) {
-        return fetch('/api/games', {
+    // Ajouter un nouveau studio
+    add(studio) {
+        return fetch('/api/studiogames', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(game),
+            body: JSON.stringify(studio),
         })
         .then(res => {
             if (!res.ok) {
@@ -52,14 +52,14 @@ export class GameService {
         });
     }
 
-    // Mettre à jour un jeu
-    modif(game) {
-        return fetch(`/api/games/${game._id}`, {
+    // Mettre à jour un studio
+    modif(studio) {
+        return fetch(`/api/studiogames/${studio._id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(game),
+            body: JSON.stringify(studio),
         })
         .then(res => {
             if (!res.ok) {
@@ -73,9 +73,9 @@ export class GameService {
         });
     }
 
-    // Supprimer un jeu
+    // Supprimer un studio
     remove(id) {
-        return fetch(`/api/games/${id}`, {
+        return fetch(`/api/studiogames/${id}`, {
             method: 'DELETE',
         })
         .then(res => {

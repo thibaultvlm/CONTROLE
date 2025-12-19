@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+// Définition du schéma pour les développeurs
 let DeveloperSchema = mongoose.Schema({
     name: String,
     location: String,
@@ -8,6 +9,7 @@ let DeveloperSchema = mongoose.Schema({
     employees: Number
 });
 
+// Création du modèle Developer
 let Developer = mongoose.model('Developer', DeveloperSchema);
 
 module.exports = Developer;

@@ -1,0 +1,145 @@
+body {
+    font-family: 'Poppins', 'SF Pro', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: var(--text-color);
+    background: var(--dark-bg);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Effet "neon" pour les titres */
+.neon-text {
+    color: var(--text-color);
+    text-shadow:
+        0 0 5px var(--accent-color),
+        0 0 10px var(--purple-accent);
+}
+
+/* Boutons ultra-modernes */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    border: none;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    background: linear-gradient(145deg, var(--accent-color), var(--accent-hover));
+    color: white;
+    box-shadow: var(--glass-shadow);
+    position: relative;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        45deg,
+        rgba(255, 255, 255, 0.1) 0%,
+        rgba(255, 255, 255, 0) 50%,
+        rgba(255, 255, 255, 0.1) 100%
+    );
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+}
+
+.btn:hover::before {
+    transform: translateX(100%);
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow:
+        0 6px 12px rgba(0, 212, 170, 0.3),
+        0 2px 8px rgba(138, 43, 226, 0.2);
+}
+
+.btn-primary {
+    background: linear-gradient(145deg, var(--purple-accent), #a855f7);
+}
+
+.btn-danger {
+    background: linear-gradient(145deg, var(--pink-accent), #ec4899);
+}
+
+.btn-warning {
+    background: linear-gradient(145deg, var(--yellow-accent), #f59e0b);
+}
+
+/* Style pour les badges */
+.badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    background-color: var(--accent-color);
+    color: white;
+    font-size: 0.8rem;
+    margin-top: 5px;
+}
+
+.badge-purple {
+    background-color: var(--purple-accent);
+}
+
+.badge-pink {
+    background-color: var(--pink-accent);
+}
+
+/* Style pour les cartes */
+.card {
+    background: rgba(20, 20, 30, 0.6);
+    border-radius: var(--border-radius);
+    box-shadow: var(--glass-shadow);
+    border: var(--glass-border);
+    backdrop-filter: blur(var(--glass-blur));
+    padding: 15px;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* Style pour les statistiques */
+.stats {
+    display: flex;
+    justify-content: space-around;
+    margin: 30px 0;
+    text-align: center;
+}
+
+.stat-item {
+    background: rgba(20, 20, 30, 0.6);
+    border-radius: var(--border-radius);
+    box-shadow: var(--glass-shadow);
+    border: var(--glass-border);
+    backdrop-filter: blur(var(--glass-blur));
+    padding: 20px;
+    width: 200px;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--accent-color);
+    margin-bottom: 10px;
+}
+
+/* Effet neon pour le texte */
+.neon-text {
+    color: var(--accent-color);
+    text-shadow: 0 0 5px var(--accent-color), 0 0 10px var(--accent-color);
+}
+
+

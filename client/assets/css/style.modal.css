@@ -1,0 +1,73 @@
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+    background: rgba(26, 33, 62, 0.9);
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    width: 80%;
+    max-width: 500px;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.modal form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.modal form input {
+    padding: 10px;
+    border-radius: var(--border-radius);
+    border: var(--glass-border);
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-color);
+}
+
+.modal form button {
+    padding: 10px;
+    border: none;
+    border-radius: var(--border-radius);
+    background: var(--accent-color);
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+#confirmDeleteBtn {
+    background: var(--pink-accent);
+    margin-right: 10px;
+}
+
+#cancelDeleteBtn {
+    background: var(--darker-bg);
+    color: var(--text-color);
+}
+
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: var(--accent-color);
+    color: white;
+    padding: 15px;
+    border-radius: var(--border-radius);
+    display: none;
+}

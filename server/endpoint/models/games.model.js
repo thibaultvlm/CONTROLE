@@ -1,13 +1,16 @@
 const mongoose = require('mongoose');
 
+// Définition du schéma pour les jeux
 let GameSchema = mongoose.Schema({
     title: String,
-    genre : String,
+    genre: String,
     releaseDate: Date,
     developer: String,
-    platform: String
+    platform: String,
+    imageUrl: String
 });
 
-let Games = mongoose.model('Game', GameSchema);
+// Création du modèle Game
+let Game = mongoose.model('Game', GameSchema);
 
-module.exports = Games;
+module.exports = Game;

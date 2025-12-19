@@ -1,13 +1,57 @@
-body {
-    background: var(--bg-gradient);
-    background-size: 400% 400%;
-    animation: gradientAnimation 25s ease infinite;
-    font-family: 'SF Pro', 'Roboto', sans-serif;
-    margin: 0;
-    padding: 0;
-    color: white;
-    overflow-x: hidden;
-    line-height: 1.6;
-    min-height: 100vh;
+.hero {
+    text-align: center;
+    padding: 50px 20px;
+    animation: var(--fade-in);
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    background: linear-gradient(to right, var(--accent-color), var(--purple-accent));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin: 40px 0;
+}
+
+.feature-card {
     position: relative;
+    overflow: hidden;
+    animation: var(--slide-up);
+}
+
+.feature-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(to right, var(--accent-color), var(--purple-accent));
+}
+
+.stats {
+    background: rgba(26, 33, 62, 0.6);
+    border-radius: var(--border-radius);
+    padding: 25px;
+    margin: 30px 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--accent-color);
 }

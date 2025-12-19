@@ -9,14 +9,14 @@
     <link rel="stylesheet" href="/assets/css/style.global.css">
     <link rel="stylesheet" href="/assets/css/style.modal.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <title>Liste des Jeux - GameHub</title>
+    <title>Liste des Studios - GameHub</title>
     <style>
         .table img { width: 50px; height: 50px; object-fit: cover; border-radius: 4px; }
     </style>
 </head>
 <body>
     <header>
-        <h1><i class="fas fa-gamepad"></i> GameHub</h1>
+        <h1><i class="fas fa-building"></i> GameHub</h1>
         <nav>
             <ul>
                 <li><a href="/"><i class="fas fa-home"></i> Accueil</a></li>
@@ -29,8 +29,8 @@
     <main>
         <div class="table-container">
             <h2>
-                Liste des Jeux
-                <button id="addGameBtn" class="btn-add">
+                Liste des Studios
+                <button id="addStudioBtn" class="btn-add">
                     <i class="fas fa-plus"></i> Ajouter
                 </button>
             </h2>
@@ -39,41 +39,41 @@
                 <thead>
                     <tr>
                         <th></th>
-                        <th>Titre</th>
-                        <th>Genre</th>
-                        <th>Date de sortie</th>
-                        <th>Développeur</th>
-                        <th>Plateforme</th>
+                        <th>Nom</th>
+                        <th>Localisation</th>
+                        <th>Fondé le</th>
+                        <th>Fondateur</th>
+                        <th>Employés</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
-                <tbody id="gameListe">
+                <tbody id="studioListe">
                     <!-- Contenu généré par JS -->
                 </tbody>
             </table>
         </div>
     </main>
 
-    <!-- Modal pour ajouter un jeu -->
-    <div id="addGameModal" class="modal">
+    <!-- Modal pour ajouter un studio -->
+    <div id="addStudioModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
-            <h2><i class="fas fa-plus"></i> Ajouter un jeu</h2>
-            <form id="addGameForm">
-                <label for="title">Titre :</label>
-                <input type="text" id="title" name="title" required>
+            <h2><i class="fas fa-plus"></i> Ajouter un studio</h2>
+            <form id="addStudioForm">
+                <label for="name">Nom :</label>
+                <input type="text" id="name" name="name" required>
 
-                <label for="genre">Genre :</label>
-                <input type="text" id="genre" name="genre" required>
+                <label for="location">Localisation :</label>
+                <input type="text" id="location" name="location" required>
 
-                <label for="releaseDate">Date de sortie :</label>
-                <input type="date" id="releaseDate" name="releaseDate" required>
+                <label for="founded">Fondé le :</label>
+                <input type="date" id="founded" name="founded" required>
 
-                <label for="developer">Développeur :</label>
-                <input type="text" id="developer" name="developer" required>
+                <label for="founder">Fondateur :</label>
+                <input type="text" id="founder" name="founder" required>
 
-                <label for="platform">Plateforme :</label>
-                <input type="text" id="platform" name="platform" required>
+                <label for="employees">Employés :</label>
+                <input type="number" id="employees" name="employees" required>
 
                 <label for="imageUrl">URL de l'image :</label>
                 <input type="text" id="imageUrl" name="imageUrl" placeholder="https://exemple.com/image.jpg">
@@ -83,28 +83,28 @@
         </div>
     </div>
 
-    <!-- Modal pour modifier un jeu -->
-    <div id="editGameModal" class="modal">
+    <!-- Modal pour modifier un studio -->
+    <div id="editStudioModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
-            <h2><i class="fas fa-edit"></i> Modifier un jeu</h2>
-            <form id="editGameForm">
+            <h2><i class="fas fa-edit"></i> Modifier un studio</h2>
+            <form id="editStudioForm">
                 <input type="hidden" id="editId" name="id">
 
-                <label for="editTitle">Titre :</label>
-                <input type="text" id="editTitle" name="title" required>
+                <label for="editName">Nom :</label>
+                <input type="text" id="editName" name="name" required>
 
-                <label for="editGenre">Genre :</label>
-                <input type="text" id="editGenre" name="genre" required>
+                <label for="editLocation">Localisation :</label>
+                <input type="text" id="editLocation" name="location" required>
 
-                <label for="editReleaseDate">Date de sortie :</label>
-                <input type="date" id="editReleaseDate" name="releaseDate" required>
+                <label for="editFounded">Fondé le :</label>
+                <input type="date" id="editFounded" name="founded" required>
 
-                <label for="editDeveloper">Développeur :</label>
-                <input type="text" id="editDeveloper" name="developer" required>
+                <label for="editFounder">Fondateur :</label>
+                <input type="text" id="editFounder" name="founder" required>
 
-                <label for="editPlatform">Plateforme :</label>
-                <input type="text" id="editPlatform" name="platform" required>
+                <label for="editEmployees">Employés :</label>
+                <input type="number" id="editEmployees" name="employees" required>
 
                 <label for="editImageUrl">URL de l'image :</label>
                 <input type="text" id="editImageUrl" name="imageUrl" placeholder="https://exemple.com/image.jpg">
@@ -114,12 +114,12 @@
         </div>
     </div>
 
-    <!-- Modal pour supprimer un jeu -->
-    <div id="deleteGameModal" class="modal">
+    <!-- Modal pour supprimer un studio -->
+    <div id="deleteStudioModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
-            <h2><i class="fas fa-exclamation-triangle"></i> Supprimer un jeu</h2>
-            <p>Êtes-vous sûr de vouloir supprimer ce jeu ?</p>
+            <h2><i class="fas fa-exclamation-triangle"></i> Supprimer un studio</h2>
+            <p>Êtes-vous sûr de vouloir supprimer ce studio ?</p>
             <button type="button" id="confirmDeleteBtn"><i class="fas fa-trash"></i> Supprimer</button>
             <button type="button" id="cancelDeleteBtn"><i class="fas fa-ban"></i> Annuler</button>
         </div>
@@ -129,6 +129,6 @@
     <div id="notification" class="notification"></div>
 
     <!-- Script -->
-    <script type="module" src="/assets/scripts/gameListe.js"></script>
+    <script type="module" src="/assets/scripts/studioListe.js"></script>
 </body>
 </html>
