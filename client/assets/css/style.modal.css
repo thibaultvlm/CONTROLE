@@ -63,7 +63,7 @@
 
 .notification {
     position: fixed;
-    top: 20px;
+    top: 110px;
     right: 20px;
     background: var(--accent-color);
     color: white;
