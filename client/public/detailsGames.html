@@ -10,53 +10,6 @@
     <link rel="stylesheet" href="/assets/css/style.modal.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <title>Détails du Jeu - GameHub</title>
-    <style>
-        .detail-cover {
-            width: 150px;
-            height: 200px;
-            object-fit: cover;
-            border-radius: var(--border-radius);
-        }
-        .screenshot {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            border-radius: var(--border-radius);
-            margin: 5px;
-        }
-        .screenshots {
-            display: flex;
-            gap: 10px;
-            overflow-x: auto;
-            padding: 10px 0;
-        }
-        .detail-header {
-            display: flex;
-            gap: 20px;
-            margin-bottom: 20px;
-        }
-        .info-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            margin: 20px 0;
-        }
-        .info-label {
-            font-weight: bold;
-            color: var(--accent-color);
-        }
-        .info-value {
-            color: var(--text-color);
-        }
-        @media (max-width: 768px) {
-            .detail-header {
-                flex-direction: column;
-            }
-            .info-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
 </head>
 <body>
     <header>
@@ -103,13 +56,6 @@
             <div>
                 <h3 style="margin: 20px 0 10px; color: var(--accent-color);">Description</h3>
                 <p id="gameDescription" style="line-height: 1.6; margin-bottom: 20px;"></p>
-            </div>
-
-            <div>
-                <h3 style="margin: 20px 0 10px; color: var(--accent-color);">Captures d'écran</h3>
-                <div id="gameScreenshots" class="screenshots">
-                    <!-- Les screenshots seront ajoutés ici -->
-                </div>
             </div>
 
             <div style="display: flex; justify-content: center; gap: 15px; margin-top: 30px;">
